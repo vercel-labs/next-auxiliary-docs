@@ -1,0 +1,40 @@
+---
+minVersion: "16.0.0-canary.0"
+---
+
+# Instant Navigations
+
+Next.js 16 introduces instant navigations powered by View Transitions. When navigating between pages, the transition is seamless and instant.
+
+## How It Works
+
+The `<Link>` component automatically prefetches pages in the background. When a user clicks a link, the page is already loaded and the transition is instant.
+
+```tsx
+import Link from 'next/link'
+
+export default function Layout({ children }) {
+  return (
+    <nav>
+      <Link href="/about">About</Link>
+      <Link href="/blog">Blog</Link>
+    </nav>
+  )
+}
+```
+
+## View Transitions API
+
+Under the hood, Next.js uses the View Transitions API to animate between pages. This provides smooth, native-feeling transitions without any JavaScript animation libraries.
+
+## Configuration
+
+You can customize the transition behavior in your `next.config.ts`:
+
+```ts
+const config = {
+  experimental: {
+    viewTransition: true,
+  },
+}
+```
